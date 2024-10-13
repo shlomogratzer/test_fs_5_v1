@@ -23,10 +23,18 @@ export const authMiddleware = (req:authRequest,res:Response,next:NextFunction): 
     }
 }
 export const isManager = (req:authRequest,res:Response,next:NextFunction): void =>{
-    if(req.user?.role !== 'manager'){
+    if(req.user?.role !== 'teacher'){
         res.status(403).json({message:'Access denied'})
         
-    }else if(req.user?.role === 'manager'){
+    }else if(req.user?.role === 'teacher'){
+        next()
+    }
+}
+export const isNotManager = (req:authRequest,res:Response,next:NextFunction): void =>{
+    if(req.user?.role !== 'student'){
+        res.status(403).json({message:'Access denied'})
+        
+    }else if(req.user?.role === 'student'){
         next()
     }
 }

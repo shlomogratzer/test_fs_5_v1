@@ -5,6 +5,7 @@ import cookie from 'cookie-parser'
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerui from 'swagger-ui-express'
 import authRoute from './routes/authRoute'
+import scoreRoute from './routes/scoreRoute'
 dotenv.config()
 
 const app = express()
@@ -49,6 +50,7 @@ const options = {
 connectDB()
 
 app.use('/auth',authRoute)
+app.use('/score',scoreRoute)
 
 const port = process.env.PORT || 3018
 
