@@ -10,7 +10,6 @@ const ScoreSchema = new Schema({
     studentemail:{
         type:String,
         required : true,
-        unique:true
     },
     classname:{
         type:String,
